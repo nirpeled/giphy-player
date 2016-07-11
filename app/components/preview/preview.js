@@ -13,8 +13,7 @@ var Preview = React.createClass({
     render: function () {
 
         var props = this.props,
-            image = _.get(props, 'images.downsized_still.url'),
-            style = {backgroundImage: 'url(' + image + ')'};
+            style = {backgroundImage: 'url(' + props.fixed_width_small_still_url + ')'};
 
         console.log(props);
 

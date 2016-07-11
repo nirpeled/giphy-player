@@ -19,8 +19,7 @@ var FeedContainer = React.createClass({
     getInitialState: function() {
 
         return {
-            isLoading: true,
-            item: _.random(5)
+            isLoading: true
         }
 
     },
@@ -42,8 +41,7 @@ var FeedContainer = React.createClass({
 
         var props = this.props,
             state = this.state,
-            items = _.get(props, 'feed.items'),
-            item = _.size(items) ? items[state.item] : null;
+            item = _.get(props, 'feed.item');
 
         return (
             <section className="box-row box-feed">
