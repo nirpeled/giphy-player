@@ -11,28 +11,49 @@ import iconsConstants from '../../constants/icons-constants.js';
 // actions
 import * as feedActions from './feed-actions.js';
 
+// components
+import Preview from '../../components/preview/preview.js';
+
 var FeedContainer = React.createClass({
+
+    getInitialState: function() {
+
+        return {
+            isLoading: true,
+            item: _.random(5)
+        }
+
+    },
 
     componentDidMount: function() {
       
         var props = this.props;
         
-        props.dispatch(feedActions.fetch());
-        
+        props.dispatch(feedActions.fetch()).then(
+            () => this.setState({isLoading: false}),
+            () => this.setState({isLoading: false})
+        );
+
     },
     
     render: function () {
 
         helpers.logger('[FeedContainer] render');
 
-        var props = this.props;
-
-        console.log('props', props);
+        var props = this.props,
+            state = this.state,
+            items = _.get(props, 'feed.items'),
+            item = _.size(items) ? items[state.item] : null;
 
         return (
             <section className="box-row box-feed">
 
-                <h1>Loading</h1>
+                <div className="centered">
+                    {state.isLoading
+                        ? <h1>Loading</h1>
+                        : <Preview {...item} />
+                    }
+                </div>
                 
             </section>
         );

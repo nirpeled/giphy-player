@@ -1,0 +1,47 @@
+/*
+-----------------------------------------------------
+PREVIEW
+-----------------------------------------------------
+*/
+
+.box-preview {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    border-radius: 50%;
+    color: $gray;
+    border: 2px solid $gray;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 300ms ease;
+    @include center-absolute();
+    z-index: 50;
+
+    .preview {
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        display: block;
+        overflow: hidden;
+        border-radius: inherit;
+    }
+
+    > i {
+        font-size: 80px;
+        @include center-absolute();
+        z-index: 100;
+    }
+
+    &:hover {
+        color: $blue;
+        border-color: $blue;
+
+        .preview {
+            opacity: 0.4;
+        }
+
+        > i {
+            font-size: 100px;
+        }
+    }
+}
