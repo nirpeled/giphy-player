@@ -1,25 +1,22 @@
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import classNames from 'classnames';
 import helpers from '../../helpers/helpers.js';
-
-// constants
-import iconsConstants from '../../constants/icons-constants.js';
 
 // actions
 import * as feedActions from './feed-actions.js';
 
 // components
 import Preview from '../../components/preview/preview.js';
+import Player from '../../components/player/player.js';
 
 var FeedContainer = React.createClass({
 
     getInitialState: function() {
 
         return {
-            isLoading: true
+            isLoading: true,
+            isPlaying: null
         }
 
     },
@@ -32,6 +29,26 @@ var FeedContainer = React.createClass({
             () => this.setState({isLoading: false}),
             () => this.setState({isLoading: false})
         );
+
+    },
+
+    playVideo: function(itemId) {
+
+        helpers.logger('[FeedContainer] playVideo');
+
+        this.setState({
+           isPlaying: itemId 
+        });
+
+    },
+
+    closeVideo: function() {
+
+        helpers.logger('[FeedContainer] closeVideo');
+
+        this.setState({
+           isPlaying: null 
+        });
 
     },
 
@@ -54,9 +71,11 @@ var FeedContainer = React.createClass({
         return (
             <section className="box-row box-feed">
 
-                {_.map(items, (item) => {
-                    return <Preview {...item} />
+                {_.map(items, (item, index) => {
+                    return <Preview key={item.id + '|' + index} {...item} playVideo={this.playVideo} />
                 })}
+
+                {state.isPlaying ? <Player {...items[state.isPlaying]} handleClose={this.closeVideo} /> : null}
                 
             </section>
         );

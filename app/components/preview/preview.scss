@@ -28,7 +28,7 @@ PREVIEW
 
     > i {
         font-size: 60px;
-        @include center-absolute();
         z-index: 100;
+        @include center-absolute();
     }
 }

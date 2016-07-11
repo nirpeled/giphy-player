@@ -10,16 +10,24 @@ import iconsConstants from '../../constants/icons-constants.js';
 
 var Preview = React.createClass({
 
+    handleClick: function(e) {
+        
+        e.preventDefault();
+        
+        var props = this.props;
+        
+        props.playVideo(props.id);
+        
+    },
+    
     render: function () {
 
         var props = this.props,
             image = _.get(props, 'images.original_still.url'),
             style = {backgroundImage: 'url(' + image + ')'};
 
-        console.log(props);
-
         return (
-            <article className="box-preview">
+            <article className="box-preview" onClick={this.handleClick}>
                 <span className="preview" style={style} />
                 <i className={iconsConstants.PLAY} />
             </article>
