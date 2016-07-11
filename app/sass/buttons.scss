@@ -1,0 +1,88 @@
+/*
+----------------------------------------------------
+BUTTONS
+----------------------------------------------------
+*/
+
+.btn {
+    background: $blue;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 200;
+    color: $white;
+    border: 1px solid $blue-dark;
+    padding: 10px 30px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color .5s ease;
+    text-transform: uppercase;
+
+    + .btn {
+        margin-left: 5px;
+    }
+
+    &:active,
+    &:visited {
+        text-decoration: none;
+        color: $white;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-color: $blue-dark;
+    }
+
+    /*
+    ----------------------------------------------------
+    SIZES
+    ----------------------------------------------------
+    */
+
+    &.full-width {
+        width: 100%;
+    }
+
+    /*
+    ----------------------------------------------------
+    VARIATIONS
+    ----------------------------------------------------
+    */
+
+    &.btn-warning {
+        background-color: $red;
+        border-color: $red-dark;
+
+        &:hover {
+            background-color: $red-dark;
+        }
+    }
+
+    &.disabled {
+        background: $gray;
+        color: $white;
+        border-color: $gray-light;
+        cursor: default;
+
+        &:hover {
+            background: $gray;
+            border-color: $gray-light;
+            color: $white;
+        }
+    }
+
+    &.in-progress {
+
+        i {
+            animation: fa-spin 2s infinite linear;
+
+            &:before {
+                content: "\f110";
+            }
+        }
+    }
+}

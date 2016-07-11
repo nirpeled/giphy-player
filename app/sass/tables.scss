@@ -1,0 +1,86 @@
+/*
+----------------------------------------------------
+TABLES
+----------------------------------------------------
+*/
+
+.table {
+    width: 100%;
+
+    > li {
+        position: relative;
+        margin: 0;
+        padding: 30px;
+        text-align: center;
+        font-size: $text-size-medium;
+        line-height: 50px;
+        border-bottom: 1px solid $table-border-color;
+
+        &.category {
+            padding: 10px;
+            line-height: 20px;
+            text-transform: uppercase;
+            background-color: $gray;
+            color: $white;
+            font-size: 14px;
+            font-weight: 200;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+
+            > .action {
+                display: block;
+            }
+        }
+
+        > .action {
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: all 300ms ease;
+            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 1;
+
+            &.delete {
+                left: 50px;
+            }
+
+            &.edit {
+                right: 50px;
+            }
+
+            &.filter,
+            &.open {
+                right: 100px;
+            }
+
+            &:hover {
+                color: $white;
+
+                &.delete {
+                    background: $red;
+                }
+
+                &.edit,
+                &.filter,
+                &.open {
+                    background: $blue;
+                }
+            }
+
+            > i {
+                @include center-absolute();
+            }
+        }
+    }
+}
+
