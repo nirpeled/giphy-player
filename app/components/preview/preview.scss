@@ -6,42 +6,29 @@ PREVIEW
 
 .box-preview {
     width: 100%;
-    height: 100%;
-    background-color: $white;
-    border-radius: 50%;
-    color: $gray;
-    border: 2px solid $gray;
+    height: 200px;
+    color: $white;
     cursor: pointer;
     box-sizing: border-box;
     transition: all 300ms ease;
-    @include center-absolute();
-    z-index: 50;
+    border-bottom: 1px solid $white;
+    position: relative;
 
-    .preview {
+    &:last-child {
+        border-bottom: none;
+    }
+
+    > .preview {
         width: 100%;
         height: 100%;
         background-size: cover;
+        background-position: center;
         display: block;
-        overflow: hidden;
-        border-radius: inherit;
     }
 
     > i {
-        font-size: 80px;
+        font-size: 60px;
         @include center-absolute();
         z-index: 100;
-    }
-
-    &:hover {
-        color: $blue;
-        border-color: $blue;
-
-        .preview {
-            opacity: 0.4;
-        }
-
-        > i {
-            font-size: 100px;
-        }
     }
 }

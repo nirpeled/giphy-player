@@ -9,9 +9,10 @@ class Api extends ApiAbstract {
     fetch() {
 
         var options = {
-            url: 'http://api.giphy.com/v1/gifs/random',
+            url: 'http://api.giphy.com/v1/gifs/trending',
             query: {
-                api_key: 'dc6zaTOxFJmzC'
+                api_key: 'dc6zaTOxFJmzC',
+                limit: 5
             }
         };
 

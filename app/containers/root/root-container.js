@@ -15,7 +15,7 @@ var RootContainer = React.createClass({
 
                 <head>
 
-                    <title>Player</title>
+                    <title>Giphy Player</title>
                     <link rel="stylesheet" href="/css/application.css" />
                     <meta charSet="utf-8" />
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />

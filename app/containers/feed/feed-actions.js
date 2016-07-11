@@ -35,7 +35,7 @@ function fetchSuccess(response) {
 
     return {
         type: feedConstants.FETCH_SUCCESS,
-        item: response.data
+        items: response.data
     }
 
 }

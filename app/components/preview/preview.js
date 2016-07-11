@@ -13,15 +13,16 @@ var Preview = React.createClass({
     render: function () {
 
         var props = this.props,
-            style = {backgroundImage: 'url(' + props.fixed_width_small_still_url + ')'};
+            image = _.get(props, 'images.original_still.url'),
+            style = {backgroundImage: 'url(' + image + ')'};
 
         console.log(props);
 
         return (
-            <div className="box-preview">
+            <article className="box-preview">
                 <span className="preview" style={style} />
                 <i className={iconsConstants.PLAY} />
-            </div>
+            </article>
         );
     }
 });

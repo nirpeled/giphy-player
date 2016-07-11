@@ -34,24 +34,29 @@ var FeedContainer = React.createClass({
         );
 
     },
-    
+
     render: function () {
 
         helpers.logger('[FeedContainer] render');
 
         var props = this.props,
             state = this.state,
-            item = _.get(props, 'feed.item');
+            items = _.get(props, 'feed.items');
+
+        if (state.isLoading) {
+            return (
+                <section className="box-row box-feed">
+                    <h1>Loading</h1>
+                </section>
+            );
+        }
 
         return (
             <section className="box-row box-feed">
 
-                <div className="centered">
-                    {state.isLoading
-                        ? <h1>Loading</h1>
-                        : <Preview {...item} />
-                    }
-                </div>
+                {_.map(items, (item) => {
+                    return <Preview {...item} />
+                })}
                 
             </section>
         );
