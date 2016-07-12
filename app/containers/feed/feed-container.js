@@ -58,7 +58,8 @@ var FeedContainer = React.createClass({
 
         var props = this.props,
             state = this.state,
-            items = _.get(props, 'feed.items');
+            items = _.get(props, 'feed.items'),
+            item = state.isPlaying ? _.find(items, ['id', state.isPlaying]) : null;
 
         if (state.isLoading) {
             return (
@@ -75,7 +76,7 @@ var FeedContainer = React.createClass({
                     return <Preview key={item.id + '|' + index} {...item} playVideo={this.playVideo} />
                 })}
 
-                {state.isPlaying ? <Player {...items[state.isPlaying]} handleClose={this.closeVideo} /> : null}
+                {state.isPlaying ? <Player {...item} handleClose={this.closeVideo} /> : null}
                 
             </section>
         );
