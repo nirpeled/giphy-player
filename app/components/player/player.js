@@ -62,18 +62,24 @@ var Player = React.createClass({
             videoWidth = parseInt(_.get(props, 'images.original.width')),
             videoHeight = parseInt(_.get(props, 'images.original.height')),
             videoRatio = videoWidth / videoHeight,
-            videoOrientation = (videoWidth > videoHeight) ? 'horizontal' : 'vertical';
+            videoOrientation = (videoWidth > videoHeight) ? 'horizontal' : 'vertical',
+            style = {
+                //width: _.min([videoWidth, window.innerWidth]),
+                height: '100%'
+            };
 
         console.log('state', state);
         console.log('videoWidth', videoWidth);
         console.log('videoHeight', videoHeight);
         console.log('videoRatio', videoRatio);
         console.log('videoOrientation', videoOrientation);
+        console.log('window.innerWidth', window.innerWidth);
+        console.log('style', style);
 
         return (
             <section className={classNames('box-player', state.orientation)}>
-                <i className={iconsConstants.CLOSE} onClick={this.handleClose} />
-                <img className={videoOrientation} src={image} />
+                <span className="close" onClick={this.handleClose}><i className={iconsConstants.CLOSE} /></span>
+                <img className={videoOrientation} src={image} style={style}/>
             </section>
         );
     }
