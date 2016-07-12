@@ -1,6 +1,6 @@
 # Giphy Player
 
-![version](https://img.shields.io/badge/version-0.1.0-green.svg)
+![version](https://img.shields.io/badge/version-0.2.0-green.svg)
 
 Giphy Player is a web app that plays GIF images using Giphy's API
 
@@ -31,4 +31,6 @@ npm run dev // production mode is not stable at the moment
 
 ### TODO / WIP
 
-* Everything
+* Video Player component: improve orientation detection
+* Video Player component: use original image ratio
+* Feed: support infinite scroll to load more videos
