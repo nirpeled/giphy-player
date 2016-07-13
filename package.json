@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --debug -v --stats --progress --config ./bin/webpack-config.js",
-    "start": "npm run build && env environment=prod node bin/prod.js",
+    "start": "npm run build && bin/dev.js",
     "dev": "node bin/dev.js",
     "test": "mocha --watch --compilers js:babel/register \"app/**/*.js\""
   },
