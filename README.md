@@ -8,7 +8,7 @@ Giphy Player is a web app that plays GIF images using Giphy's API
 
 ```
 1. npm install
-2. npm run dev
+2. npm run start
 3. Visit localhost:3000
 ```
 
