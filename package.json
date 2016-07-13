@@ -1,9 +1,9 @@
 {
   "name": "giphy-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build": "webpack --debug -v --stats --progress --config ./bin/webpack-config.js",
-    "start": "npm run build && bin/dev.js",
+    "start": "npm run build && node bin/dev.js",
     "dev": "node bin/dev.js",
     "test": "mocha --watch --compilers js:babel/register \"app/**/*.js\""
   },

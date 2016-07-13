@@ -1,6 +1,6 @@
 # Giphy Player
 
-![version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![version](https://img.shields.io/badge/version-1.1.0-green.svg)
 
 Giphy Player is a web app that plays GIF images using Giphy's API
 
