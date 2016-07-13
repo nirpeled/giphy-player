@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import helpers from '../../helpers/helpers.js';
+import VisibilitySensor from 'react-visibility-sensor';
 
 // constants
 import iconsConstants from '../../constants/icons-constants.js';
@@ -55,6 +56,20 @@ var FeedContainer = React.createClass({
 
     },
 
+    handleVisibilitySensor: function(isVisible) {
+
+        helpers.logger('[FeedContainer] handleVisibilitySensor');
+
+        var props = this.props,
+            items = _.get(props, 'feed.items'),
+            offset = _.size(items);
+
+        if (isVisible) {
+            props.dispatch(feedActions.fetch(offset));
+        }
+
+    },
+
     render: function () {
 
         helpers.logger('[FeedContainer] render');
@@ -67,7 +82,7 @@ var FeedContainer = React.createClass({
         if (state.isLoading) {
             return (
                 <section className="box-row box-feed">
-                    <p className="spinner"><i className={iconsConstants.SPINNER} /></p>
+                    <p className="spinner centered"><i className={iconsConstants.SPINNER} /></p>
                 </section>
             );
         }
@@ -79,6 +94,10 @@ var FeedContainer = React.createClass({
                     return <Preview key={item.id + '|' + index} {...item} playVideo={this.playVideo} />
                 })}
 
+                <VisibilitySensor onChange={this.handleVisibilitySensor}>
+                    <p className="spinner"><i className={iconsConstants.SPINNER} /></p>
+                </VisibilitySensor>
+                
                 {state.isPlaying ? <Player {...item} handleClose={this.closeVideo} /> : null}
                 
             </section>

@@ -11,6 +11,10 @@ FEED
 
     .spinner {
         font-size: 30px;
-        @include center-absolute();
+        line-height: 60px;
+
+        &.centered {
+            @include center-absolute();
+        }
     }
 }

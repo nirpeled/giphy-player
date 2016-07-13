@@ -6,13 +6,14 @@ class Api extends ApiAbstract {
         super(config);
     }
 
-    fetch() {
+    fetch(offset) {
 
         var options = {
             url: 'http://api.giphy.com/v1/gifs/trending',
             query: {
                 api_key: 'dc6zaTOxFJmzC',
-                limit: 5
+                limit: 5,
+                offset
             }
         };
 

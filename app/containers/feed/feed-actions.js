@@ -3,7 +3,7 @@ import apiService from '../../services/api-service.js';
 import helpers from '../../helpers/helpers.js';
 import feedConstants from './feed-constants.js';
 
-export function fetch() {
+export function fetch(offset) {
 
     helpers.logger('[FeedActions] fetch');
 
@@ -13,7 +13,7 @@ export function fetch() {
             type: feedConstants.FETCH_REQUEST
         });
 
-        return apiService.instance.fetch().then(
+        return apiService.instance.fetch(offset).then(
 
             (response) => {
                 dispatch(fetchSuccess(response));
