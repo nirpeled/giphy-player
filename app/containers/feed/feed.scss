@@ -9,7 +9,8 @@ FEED
     height: 100%;
     position: relative;
 
-    h1 {
+    .spinner {
+        font-size: 30px;
         @include center-absolute();
     }
 }

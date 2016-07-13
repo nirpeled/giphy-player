@@ -3,6 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import helpers from '../../helpers/helpers.js';
 
+// constants
+import iconsConstants from '../../constants/icons-constants.js';
+
 // actions
 import * as feedActions from './feed-actions.js';
 
@@ -64,7 +67,7 @@ var FeedContainer = React.createClass({
         if (state.isLoading) {
             return (
                 <section className="box-row box-feed">
-                    <h1>Loading</h1>
+                    <p className="spinner"><i className={iconsConstants.SPINNER} /></p>
                 </section>
             );
         }
