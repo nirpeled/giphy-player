@@ -90,7 +90,7 @@ var FeedContainer = React.createClass({
         return (
             <section className="box-row box-feed">
 
-                {_.map(items, (item, index) => {
+                {_.map(_.uniqBy(items, 'id'), (item, index) => {
                     return <Preview key={item.id + '|' + index} {...item} playVideo={this.playVideo} />
                 })}
 
