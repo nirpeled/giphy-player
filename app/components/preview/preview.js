@@ -7,6 +7,25 @@ import iconsConstants from '../../constants/icons-constants.js';
 
 var Preview = React.createClass({
 
+    getInitialState: function() {
+
+        return {
+            image: null
+        }
+
+    },
+
+    componentDidMount: function() {
+
+        var props = this.props,
+            url = _.get(props, 'images.original_still.url');
+
+        helpers.convertImageToData(url, (image) => {
+            this.setState({image})
+        })
+
+    },
+
     handleClick: function(e) {
 
         e.preventDefault();
@@ -24,11 +43,20 @@ var Preview = React.createClass({
         helpers.logger('[Preview] render');
         
         var props = this.props,
-            image = _.get(props, 'images.original_still.url'),
-            style = {backgroundImage: 'url(' + image + ')'};
+            state = this.state,
+            style = {backgroundImage: 'url(' + state.image + ')'};
+            
 
+        if (!state.image) {
+            return (
+                <article className="box-preview">
+                    <p className="spinner"><i className={iconsConstants.SPINNER} /></p>
+                </article>
+            );
+        }
+        
         return (
-            <article className="box-preview" onClick={this.handleClick}>
+            <article className="box-preview clickable" onClick={this.handleClick}>
                 <span className="preview" style={style} />
                 <i className={iconsConstants.PLAY} />
             </article>

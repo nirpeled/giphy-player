@@ -144,20 +144,8 @@ HELPERS
 ----------------------------------------------------
 */
 
-.cursor {
-    cursor: pointer;
-}
-
 .clickable {
     cursor: pointer;
-
-    &.with-link-color {
-        color: $text-color-hover;
-    }
-
-    &:hover {
-        color: $text-color-hover !important;
-    }
 }
 
 .cf:before,

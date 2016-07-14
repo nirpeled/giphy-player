@@ -27,7 +27,6 @@ Giphy Player is a web app that plays GIF images using Giphy's API
 
 ### TODO / WIP
 
-* Lazy load images to improve loading performance (and show a spinner while loading)
 * Allow filtering and/or search by keyword (giphy api allows that)
 * Improve UI/UX
 * Add tests

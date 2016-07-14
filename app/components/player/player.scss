@@ -35,6 +35,13 @@ PLAYER
         }
     }
 
+    .spinner {
+        font-size: 30px;
+        line-height: 60px;
+        color: $white;
+        @include center-absolute();
+    }
+
     .video {
         @include center-absolute();
         height: 100vh;
